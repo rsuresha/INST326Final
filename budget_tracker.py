@@ -145,6 +145,7 @@ class BudgetTracker:
             removed = self.transactions.pop(index)
             #print the removed transaction for confirmation
             print(f"\nRemoved transaction: {removed.description} (${removed.amount}) on {removed.date}\n")
+            #return for unit testing purposes
             return removed
         else:
             print("\nInvalid transaction index. No transaction removed.\n")
