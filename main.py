@@ -17,7 +17,7 @@ def print_budget_menu():
     print("0 - Exit\n")
 
 def run_cli():
-    
+
     budget = BudgetTracker()
 
     #loop keeps budget tracker continuing going after every

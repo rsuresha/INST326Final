@@ -103,6 +103,8 @@ class BudgetTracker:
             })
 
         with open(filename, "w") as f:
+            #saves json file in human readable form 
+            #in case its needed for debugging
             json.dump(data, f, indent=4)
 
 
