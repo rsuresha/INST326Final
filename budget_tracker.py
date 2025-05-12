@@ -148,7 +148,7 @@ class BudgetTracker:
             #return for unit testing purposes
             return removed
         else:
-            print("\nInvalid transaction index. No transaction removed.\n")
+            print("\nInvalid transaction index. No transaction has been removed.\n")
             return None
 
 
