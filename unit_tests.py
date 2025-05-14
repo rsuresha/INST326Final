@@ -1,9 +1,27 @@
+"""
+    Unit tests for the BudgetTracker class
+
+    This file tests core functionality including:
+        - Adding transactions
+        - Removing transactions
+        - Viewing totals
+        - Category-based spending
+        - Filtering by month
+"""
+
 import unittest
 from budget_tracker import BudgetTracker
 
 class TestBudgetTracker(unittest.TestCase):
 
+    """
+    This class contains unit test cases for the core BudgetTracker features
+    """
+
     def test_add_transaction(self):
+        """
+        Tests that a transaction is added and stored correctly
+        """
 
         budget = BudgetTracker()
 
@@ -16,6 +34,9 @@ class TestBudgetTracker(unittest.TestCase):
         self.assertEqual(budget.transactions[0].amount, -10.00)
 
     def test_spending_by_category(self):
+        """
+        Tests that expenses are correctly grouped by category
+        """
 
         budget = BudgetTracker()
 
@@ -30,6 +51,9 @@ class TestBudgetTracker(unittest.TestCase):
         self.assertEqual(spending["Transportation"], -5.00)
 
     def test_generate_monthly_report(self):
+        """
+        Tests that filtering transactions by month/year returns expected results
+        """
 
         budget = BudgetTracker()
 
@@ -53,6 +77,9 @@ class TestBudgetTracker(unittest.TestCase):
         self.assertNotIn(-15.00, amounts)
 
     def test_transaction_refund(self):
+        """
+        Tests that positive (refund/income) transactions are handled correctly
+        """
 
         budget = BudgetTracker()
 
@@ -61,6 +88,9 @@ class TestBudgetTracker(unittest.TestCase):
         self.assertTrue(budget.transactions[0].amount > 0)
 
     def test_remove_transaction(self):
+        """
+        Tests that transactions are correctly removed by index
+        """
 
         budget = BudgetTracker()
         budget.add_transaction("01-05-2025", "Food", -10.00, "Lunch")
@@ -77,7 +107,9 @@ class TestBudgetTracker(unittest.TestCase):
         self.assertEqual(budget.transactions[0].description, "Bus fare")
 
     def test_get_net_spending(self):
-
+        """
+        Tests that net spending is calculated correctly (income - expenses)
+        """
         budget = BudgetTracker()
 
         budget.add_transaction("01-05-2025", "Income", 100.00, "Pay")
@@ -87,7 +119,9 @@ class TestBudgetTracker(unittest.TestCase):
 
 
     def test_get_total_income_and_expenses(self):
-
+        """
+        Tests total income and total expense calculations separately
+        """
         budget = BudgetTracker()
 
         budget.add_transaction("01-05-2025", "Income", 200.00, "Freelance")
