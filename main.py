@@ -1,8 +1,8 @@
 from budget_tracker import BudgetTracker
 
 def print_budget_menu():
-    
-    #Lists options for the budget tracker in the CLI
+    """ Displays a menu of options that the user can choose from when using the budget tracker. """
+
     print("\n --- Budget Home Menu ---\n")
     print("1 - Add a new transaction/income")
     print("2 - View all transactions")
@@ -17,7 +17,10 @@ def print_budget_menu():
     print("0 - Exit\n")
 
 def run_cli():
-
+    """
+    Runs the CLI loop for interacting with the budget tracker
+    until user exits by inputting 0
+    """
     budget = BudgetTracker()
 
     #loop keeps budget tracker continuing going after every
@@ -53,15 +56,15 @@ def run_cli():
 
         elif choice == '3':
 
-            print(f"\nTotal income: ${budget.get_total_income}")
+            print(f"\nTotal income: ${budget.get_total_income():.2f}")
 
         elif choice == '4':
 
-            print(f"\nTotal expenses: ${budget.get_total_expenses}")
+            print(f"\nTotal expenses: ${budget.get_total_expenses():.2f}")
 
         elif choice == '5':
 
-            print(f"\nNet balance: ${budget.get_net_spending}")
+            print(f"\nNet balance: ${budget.get_net_spending():.2f}")
 
         elif choice == '6':
 
@@ -77,7 +80,7 @@ def run_cli():
                 print("\nSpending by Category:\n")
 
                 for category, amount in spending.items():
-                    print(f"{category}: ${amount}")
+                    print(f"{category}: ${amount:.2f}")
 
         elif choice == '7':
 
@@ -95,7 +98,7 @@ def run_cli():
                 #iterate thru the results list and print each transaction
                 for transactions in results:
 
-                    print(f"[ID {transactions.id}] {transactions.date} | {transactions.category} | ${transactions.amount} | {transactions.description}")
+                    print(f"[ID {transactions.id}] {transactions.date} | {transactions.category} | ${transactions.amount:.2f} | {transactions.description}")
 
         elif choice == "8":
 
